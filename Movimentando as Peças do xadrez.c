@@ -183,3 +183,121 @@ int main() {
     printf("Jogo encerrado.\n");
     return 0;
 }
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    const int casas_baixo = 2;
+    const int casas_esquerda = 1;
+
+    printf("\n");
+
+    printf("Movimento do Cavalo:\n");
+
+    for (int i = 0; i < casas_baixo; i++) {
+        printf("Baixo\n");
+    }
+
+    int j = 0;
+    while (j < casas_esquerda) {
+        printf("Esquerda\n");
+        j++;
+    }
+
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+
+void moverTorre(int casas_restantes, const char* direcao)
+    if (casas_restantes == 0) {
+        return;
+    }
+    // Imprime a direção do movimento atual.
+    printf("%s\n", direcao);
+    moverTorre(casas_restantes - 1, direcao);
+}
+void moverBispo(int casas_restantes, const char* direcao_vertical, const char* direcao_horizontal) {
+    if (casas_restantes == 0) {
+        return;
+    }
+
+    for (int i = 0; i < 1; i++) {
+        printf("%s\n", direcao_vertical); // Movimento vertical (externo)
+
+        int j = 0;
+        while (j < 1) {
+            printf("%s\n", direcao_horizontal);
+            j++;
+        }
+    }
+
+    moverBispo(casas_restantes - 1, direcao_vertical, direcao_horizontal);
+}
+
+void moverRainha(int casas_restantes, const char* direcao) {
+    if (casas_restantes == 0) {
+        return;
+    }
+    printf("%s\n", direcao);
+    
+    moverRainha(casas_restantes - 1, direcao);
+}
+
+int main() {
+    printf("Movimento da Torre:\n");
+    
+    moverTorre(3, "Cima");
+
+    printf("\n");
+
+    printf("Movimento do Bispo:\n");
+  
+    moverBispo(2, "Cima", "Direita");
+    
+    printf("\n");
+
+    printf("Movimento da Rainha:\n");
+    moverRainha(4, "Direita");
+    printf("\n");
+
+    printf("Movimento do Cavalo:\n");
+
+    const int casas_cima = 2;       // Duas casas para cima
+    const int casas_direita = 1;    // Uma casa para a direita
+
+    for (int i = 0; i < casas_cima + casas_direita; ++i) 
+        int j = 0;
+        int move_vertical = 0;
+        int move_horizontal = 0;
+
+        if (i < casas_cima) {
+            move_vertical = 1;
+        } else {
+            move_horizontal = 1;
+        }
+
+        while (j < 1)
+            if (move_vertical)
+                printf("Cima\n");
+            } else if (move_horizontal) {
+                printf("Direita\n");
+                break; // Sai do loop 'while' interno
+            }
+            j++;
+        }
+    }
+
+    return 0;
+}
